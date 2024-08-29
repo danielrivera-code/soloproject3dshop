@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo_Project</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="wrapper">
+        <h1 class="subHead">3D Print Product Shop</h1>
+        <div id="bodyDiv">
+            <form action="/users/register" method="post" class="inputForm">
+                <div class="formGroup">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name" />
+                </div>
+                <div class="formGroup">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name" />
+                </div>
+                <div class="formGroup">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" />
+                </div>
+                <div class="formGroup">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" />
+                </div>
+                <div class="formGroup">
+                    <label for="conf_password">Confirm Password:</label>
+                    <input type="password" name="conf_password" />
+                </div>
+                <button class="button">Submit</button>
+            </form>
+            <form action="/users/login" method="post" class="inputForm">
+                <div class="formGroup">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" />
+                </div>
+                <div class="formGroup">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" />
+                </div>
+                <button class="button">Submit</button>
+            </form>
+        </div>
+        <div>
+            {% with messages = get_flashed_messages(category_filter= ['login']) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="error">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {% with messages = get_flashed_messages(category_filter= ['registration']) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="error">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Balsamiq Sans', sans-serif;
+}
+
+html, body{
+    width: 100%;
+    height: 100vh;
+}
+
+#wrapper{
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    background: rgba(40, 72, 217, 0.93);
+    color: rgb(39, 255, 6);
+    padding: 10%;
+}
+
+#title {
+    padding-top: 0.8%;
+    text-align: center;
+    font-size: 80px;
+}
+
+.navBar{
+    margin: 2%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.subHead {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-bottom: 15px;
+    
+}
+
+#bodyDiv {
+    padding: 5% 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.inputForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.formGroup {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.inputForm .formGroup label {
+    text-align: left;
+    width: 150px;
+}
+
+.inputForm .formGroup input {
+    width: 200px;
+    padding: 2px 0;
+}
+
+.button {
+    background-color: gray; 
+    border-radius: 10px;
+    color: black;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    width: 100px;
+    height: 35px;
+}
+
+
+.displayWrapper {
+    margin: 0 auto;
+    border: thick solid;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#displayTable {
+    margin: 0 auto;
+    width: 750px;
+    border-collapse: collapse;
+}
+
+#displayTable th{
+    text-align: center;
+}
+
+.tableData {
+    padding: 8px 10px;
+    text-align: center;
+}
+
+.navLink {
+    color: coral;
+    margin: 0 10px;
+    
+}

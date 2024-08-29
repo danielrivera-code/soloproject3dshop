@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Solo_Project</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1 class="subHead">Your Cart              Welcome, {{session['user_name']}}! </h1>
+        <h2 class="subHead">Purchase Item in your cart below</h2>
+        <a href="/users/logout" class="navLink">Logout</a>
+        <a href="/products/dashboard" class="navLink">--Dashboard--</a>
+        <div>
+            <h1 class="subHead">{{product.product_name}} Posted by {{product.poster.first_name}}  {{product.poster.last_name}}</h1>
+            
+            <div class="displayCard">
+                <p>Product Name: {{product.product_name}}</p>
+                <p>Description: {{product.description}}</p>
+                <iframe src="{{product.link_to_image}}" width="500" height="500"> </iframe>
+                <p>Product Price: {{product.product_price}}</p>
+                <p>Product Available: {{product.product_available}}</p>
+                <button class="button">Checkout</button>
+                <p>----------------------------</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

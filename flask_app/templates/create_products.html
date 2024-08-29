@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Solo_Project</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1 class="subHead">Add a Product to the 3D Print Market! Welcome, {{session['user_name']}}!</h1>
+        <a href="/users/logout" class="navLink">Logout</a>
+        <a href="/products/dashboard" class="navLink">--Dashboard--</a>
+        <div id="bodyDiv">
+            <div>
+                <form action="/products/create" method="post" class="inputForm">
+                    <div class="formGroup">
+                        <label for="product_name">Product Name:</label>
+                        <input type="text" name="product_name" id="product_name" value="" />
+                    </div>
+                    <div class="formGroup">
+                        <label for="description">Description:</label>
+                        <textarea name="description" id="description"></textarea>
+                    </div>
+                    <div class="formGroup">
+                        <label for="link_to_image">Link to image:</label>
+                        <input type="url" name="link_to_image" id="link_to_image" value=""/>
+                    </div>
+                    <div class="formGroup">
+                        <label for="product_price">Product Price:</label>
+                        <input type="text" name="product_price" id="product_price" value=""/>
+                    </div>
+                    <div class="formGroup">
+                        <label for="product_available">Product Available:</label>
+                        <input type="text" name="product_available" id="product_available" value=""/>
+                    </div>
+                    <button class="button">Submit</button>
+                </form>
+            </div>
+        </div>
+        {% with messages = get_flashed_messages(category_filter= ['product']) %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="error">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

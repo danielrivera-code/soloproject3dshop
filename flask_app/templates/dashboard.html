@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Solo_Project</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1 class="subHead">3D Print Marketplace </h1>
+        <h1 class="subHead">Welcome, {{session['user_name']}}! </h1>
+        <h2 class="subHead"> Find, post, and purchase different 3D printed products!</h2>
+        <a href="/users/logout" class="navLink">Logout</a>
+        <a href="/products/new" class="navLink">+ Post a new 3d print to the marketplace</a>
+        <div id="bodyDiv">
+            <div>
+                <h3 class="subHead">Posted Products</h3>
+                {% for product in user_products %}
+                <div class="displayCard">
+                    <p>Product Name: {{product.product_name}}</p>
+                    <p>Posted By: {{product.poster.first_name}}  {{product.poster.last_name}}</p>
+                    <p>Description: {{product.description}}</p>
+                    <iframe src="{{product.link_to_image}}" width="450" height="450"> </iframe>
+                    <p>Product Price: {{product.product_price}}</p>
+                    <p>Product Available: {{product.product_available}}</p>
+                    {% if product.poster.id == session['user_id'] %}
+                        <a href="/products/edit/{{product.id}}" class="navLink">Edit</a>
+                        <a href="/products/remove_product/{{product.id}}" class="navLink">Delete</a>
+                    {% endif %}
+                        <a href="/products/details/{{product.id}}">More about {{product.product_name}}</a>
+                        <a href="/products/cart/{{product.id}}" class="navLink">Add To Cart</a>
+                    
+                    <p>----------------------------------------------------------------------------</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
